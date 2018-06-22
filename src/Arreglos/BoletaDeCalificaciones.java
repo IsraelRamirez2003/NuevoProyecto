@@ -16,7 +16,7 @@ public class BoletaDeCalificaciones {
 	private int numMaterias;
 	private int numExamenes;
 	private Scanner s;
-	private double[] paraSacarPromedioGeneral;
+	
 	
 	/**
 	 * Constructor
@@ -28,7 +28,6 @@ public class BoletaDeCalificaciones {
 		this.calificacionesDeExamenes = new int [numMaterias] [numExamenes];
 		this.promedios = new double[numMaterias];
 		this.promedioGeneral = 0;
-		this.paraSacarPromedioGeneral = 
 		setMaterias();
 		setCalificacionesDeExamenes();
 	}
@@ -52,18 +51,19 @@ public class BoletaDeCalificaciones {
 
 	protected void setMaterias() {
 		for(int i = 0; i < getNumMaterias(); i++){
-			System.out.print("ingrese el nombre de la materia " + i + ": ");
+			System.out.print("ingrese el nombre de la materia " + (i+1) + ": ");
 			materias[i] = s.nextLine();
 			System.out.println("");
 		};
 	}
 	
-	protected void setCalificacionesDeExamenes(int[][] calificacionesDeExamenes) {
+	protected void setCalificacionesDeExamenes() {
 		int materia, examen;
 
 		System.out.println("Ingrese las calificaciones por mareria\n");
 		for(materia = 0; materia < getNumMaterias(); materia++){
-			System.out.println("******************************************************************************************\nMateria: " + materias[materia]);
+			System.out.println("********************************************************"
+					+ "**********************************\nMateria: " + materias[materia]);
 			for(examen = 0; examen < getNumExamenes(); examen++){
 				System.out.print("Examen " + (examen + 1) + "= ");
 				calificacionesDeExamenes[materia][examen] = s.nextInt();
@@ -87,10 +87,9 @@ public class BoletaDeCalificaciones {
 		return numExamenes;
 	}
 
-	protected double setPromedios(double[] promedios, int[] materias , double[] paraSacarPromedioGeneral) {
+	protected double setPromedios() {
 		double suma = 0 , promedio = 0;
 			
-		for(int i = 0; <= paraSacarPromedioGeneral.length; i++)
 		for(int j = 0; j <= getNumExamenes(); j++){
 			promedios[j] = s.nextInt();
 		}
