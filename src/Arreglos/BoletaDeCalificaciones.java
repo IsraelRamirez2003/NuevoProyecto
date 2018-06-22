@@ -89,6 +89,7 @@ public class BoletaDeCalificaciones {
 
 	protected double setPromedios() {
 		double suma = 0 , promedio = 0;
+		//Hay que modificar esto
 			
 		for(int j = 0; j <= getNumExamenes(); j++){
 			promedios[j] = s.nextInt();
