@@ -72,7 +72,11 @@ public class BoletaDeCalificaciones {
 	}
 
 	protected void setPromedioGeneral(double promedioGeneral) {
-		this.promedioGeneral = promedioGeneral;
+		double suma = 0;
+		for(int i = 0; i == getNumMaterias();i++){
+			suma = suma + promedios[i];
+			promedioGeneral = suma/getNumExamenes();
+		}
 	}
 	
 	protected double[] getPromedios() {
@@ -88,23 +92,20 @@ public class BoletaDeCalificaciones {
 	}
 
 	protected double setPromedios() {
-		double suma = 0 , promedio = 0;
-		//Hay que modificar esto
-			
-		for(int j = 0; j <= getNumExamenes(); j++){
-			promedios[j] = s.nextInt();
-		}
-		for(int y = 0; y <= getNumExamenes(); y++){
-			suma = suma + promedios[y];
-		}
-		promedio = suma/getNumExamenes();
-		
-		for(int x = 0; x <= materias.length; x++){
-			System.out.println("El promedio de: " + materias[x] + " es: " + promedio);
-			for(int i = 0; <= paraSacarPromedioGeneral.length; i++)
-				paraSacarPromedioGeneral[i] = promedio;
-		}
-			
+		int suma = 0 , promedio = 0;
+		int i,j = 1 ,y = 1;
+	double x = 0;
+	for(i = 0; i == getNumExamenes(); i++){
+		suma = suma + calificacionesDeExamenes[j][i];
+		x++;
+		promedio = suma/getNumExamenes(); 
+			if(x == promedios.length){
+				promedios[y] = promedio;
+				promedio = 0;
+				suma = 0;
+				j++;
+				y++;
+			}
 		}; 
 		
 
