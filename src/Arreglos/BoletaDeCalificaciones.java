@@ -29,6 +29,8 @@ public class BoletaDeCalificaciones {
 		this.promedioGeneral = 0;
 		setMaterias();
 		setCalificacionesDeExamenes();
+		setPromedios();
+		setPromediosGeneral();
 	}
 
 	
@@ -120,13 +122,19 @@ public class BoletaDeCalificaciones {
 	/**
 	 * Metodos
 	 */
-	/**
-	 * Funcion que inicializa los nombres de las materias
-	 * @param = numMaterias
-	 * @param = numExamenes
-	 */
-	public void inicializar(int i, int j){
-		
+	public void imprimir(){
+		System.out.print("           Calificaciones De Examenes");
+		System.out.print("Materias\n");
+		System.out.print("******************************************************************\n");
+		for(int materia = 0; materia < getNumMaterias(); materia++){
+			System.out.print("-" + materias[materia]);
+			for(int examen = 0; examen < getNumExamenes(); examen++){
+				System.out.print("   " + calificacionesDeExamenes[materia][examen]);
+			}                                                                       
+			System.out.print("| " + promedios[materia] + "\n");
+		}
+		System.out.print("******************************************************************\n");
+		System.out.print("Promedio General" + promedioGeneral);
 	}
 
 
