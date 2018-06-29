@@ -71,10 +71,10 @@ public class BoletaDeCalificaciones {
 		}
 	}
 
-	protected void setPromedioGeneral(double promedioGeneral) {
+	protected void setPromedioGeneral() {
 		double suma = 0;
-		for(int i = 0; i == getNumMaterias();i++){
-			suma = suma + promedios[i];
+		for(int i = 0; i < getNumMaterias();i++){
+			suma += promedios[i];
 			promedioGeneral = suma/getNumExamenes();
 		}
 	}
@@ -91,22 +91,21 @@ public class BoletaDeCalificaciones {
 		return numExamenes;
 	}
 
-	protected double setPromedios() {
+	protected void setPromedios() {
 		int suma = 0 , promedio = 0;
-		int i,j = 1 ,y = 1;
-	double x = 0;
-	for(i = 0; i == getNumExamenes(); i++){
-		suma = suma + calificacionesDeExamenes[j][i];
-		x++;
-		promedio = suma/getNumExamenes(); 
-			if(x == promedios.length){
-				promedios[y] = promedio;
-				promedio = 0;
-				suma = 0;
-				j++;
-				y++;
+		int examen,materia = 0;
+		for(materia = 0; materia < getNumMaterias(); materia++){
+
+			for(examen = 0; examen < getNumExamenes(); examen++){
+				suma += calificacionesDeExamenes[materia][examen];
 			}
-		}; 
+			promedio = suma/getNumExamenes(); 
+			promedios[materia] = promedio;
+			promedio = 0;
+			suma = 0;
+		}
+	}
+
 		
 
 	protected void setNumMaterias(int numMaterias) {
